@@ -15,17 +15,17 @@ class User(db.Model):
 
     __tablename__ = "users"
 
-    username = db.Column(db.Text,
+    username = db.Column(db.String(20),
                          nullable=False,
                          primary_key = True,
                          unique = True,)
-    password = db.Column(db.Text,
+    password = db.Column(db.String,
                          nullable = False)
-    email = db.Column(db.Text,
+    email = db.Column(db.String(50),
                         nullable=False,)
-    first_name = db.Column(db.Text,
+    first_name = db.Column(db.String(30),
                            nullable = False,)
-    last_name = db.Column(db.Text,
+    last_name = db.Column(db.String(30),
                            nullable = False,)
     
     @classmethod
