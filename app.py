@@ -22,13 +22,21 @@ def show_homepage():
     return redirect('/register')
 
 @app.route('/register')
-def show_user_form():
+def show_registration_form():
     """ Show a form that when submitted will register/create a user """
 
 
 @app.route('/register', methods=["POST"])
-def submit_user_form():
+def submit_registration_form():
     """Handle new user form submission, redirect to /secret"""
+
+@app.route('login')
+def show_login_form():
+    """Display form for logging in existing user"""
+
+@app.route('login', methods=["POST"])
+def submit_login_form():
+    """Handle login form submission, redirect to /secret"""
 
 
 
