@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, session, flash
 from models import connect_db, db, User
+from forms import RegisterForm
 # from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
@@ -25,14 +26,32 @@ def show_homepage():
 def show_registration_form():
     """ Show a form that when submitted will register/create a user """
 
+form = RegisterForm()
+
+render_template('register.html', form=form)
 
 @app.route('/register', methods=["POST"])
 def submit_registration_form():
     """Handle new user form submission, redirect to /secret"""
 
+form = UserForm()
+if form.validate_on_submit():
+
+    username = form.username.data
+    password = form.password.data
+    email = form.email.data
+    first_name = form.first_name.data
+    last_name = form.last_name.data
+    new_user = User.register(username, password, email, first_name, last_name)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+
 @app.route('/login')
 def show_login_form():
     """Display form for logging in existing user"""
+    render_template('login.html')
 
 @app.route('/login', methods=["POST"])
 def submit_login_form():
