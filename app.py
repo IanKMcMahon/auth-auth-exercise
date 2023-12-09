@@ -15,6 +15,11 @@ db.create_all()
 app = Flask(__name__)
 
 
+@app.route('/')
+def show_homepage():
+
+    return redirect('/register')
+
 
 
 
