@@ -16,20 +16,17 @@ class User(db.Model):
     __tablename__ = "users"
 
     username = db.Column(db.Text,
+                         nullable=False,
                          primary_key = True,
-                         unique = True,
-                         max_length = 50)
+                         unique = True,)
     password = db.Column(db.Text,
                          nullable = False)
     email = db.Column(db.Text,
-                        nullable=False,
-                        max_length= 50)
+                        nullable=False,)
     first_name = db.Column(db.Text,
-                           nullable = False,
-                           max_length = 30)
+                           nullable = False,)
     last_name = db.Column(db.Text,
-                           nullable = False,
-                           max_length = 30)
+                           nullable = False,)
     
     @classmethod
     def register(cls, username, pwd, email, first, last):
@@ -56,3 +53,5 @@ class User(db.Model):
             return u
         else:
             return False
+
+
