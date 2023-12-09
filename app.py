@@ -17,12 +17,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_homepage():
+    """redirect to register page when not logged in"""
 
     return redirect('/register')
 
+@app.route('/register')
+def show_user_form():
+    """ Show a form that when submitted will register/create a user """
 
 
-
+@app.route('/register', methods=["POST"])
+def submit_user_form():
+    """Handle new user form submission, redirect to /secret"""
 
 
 
