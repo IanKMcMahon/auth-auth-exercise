@@ -38,7 +38,11 @@ def show_login_form():
 def submit_login_form():
     """Handle login form submission, redirect to /secret"""
 
+@app.route('/secret')
+def display_secret_content():
+    """secret landing page for once a user is registered/logged in"""
 
+    return "YOU MADE IT!!"
 
 # **GET */ :*** Redirect to /register.
 
